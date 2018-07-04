@@ -2,6 +2,7 @@ package com.example.springboot2sandbox.repository;
 
 import com.example.springboot2sandbox.entity.Brand;
 import com.example.springboot2sandbox.enums.Gender;
+import org.assertj.core.groups.Tuple;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -11,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import java.util.List;
 
 @ExtendWith(SpringExtension.class)
 class BrandRepositoryTest {
@@ -34,16 +37,17 @@ class BrandRepositoryTest {
 
 		@Test
 		void man() {
-			Brand brand = brandRepository.findByGender(Gender.MAN);
-			org.assertj.core.api.Assertions.assertThat(brand)
+			List<Brand> brands = brandRepository.findByGender(Gender.MAN);
+			org.assertj.core.api.Assertions.assertThat(brands)
 					.extracting(Brand::getName, Brand::getGender)
-					.containsExactly("ETHOSENS", Gender.MAN);
+					.containsExactly(Tuple.tuple("ETHOSENS", Gender.MAN));
 		}
 
 		@Test
 		void woman() {
-			Brand brand = brandRepository.findByGender(Gender.WOMAN);
-			Assertions.assertNull(brand);
+			List<Brand> brands = brandRepository.findByGender(Gender.WOMAN);
+			org.assertj.core.api.Assertions.assertThat(brands)
+					.hasSize(0);
 		}
 	}
 
