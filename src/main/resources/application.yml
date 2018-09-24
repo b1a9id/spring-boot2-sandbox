@@ -9,6 +9,6 @@ spring:
       hibernate:
         format_sql: false
   datasource:
-    url: jdbc:mysql://localhost:3306/cognito
-    username: cognito
-    password: cognito
+    url: jdbc:mysql://localhost:3306/flogin
+    username: flogin
+    password: flogin
