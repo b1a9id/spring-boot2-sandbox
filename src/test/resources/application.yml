@@ -1,0 +1,13 @@
+spring:
+  flyway:
+    enabled: false
+  jpa:
+    show-sql: true
+    database: mysql
+    properties:
+      hibernate:
+        format_sql: true
+  datasource:
+    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;MODE=MYSQL;INIT=create schema if not exists "public";
+    username: flogin
+    password: flogin
