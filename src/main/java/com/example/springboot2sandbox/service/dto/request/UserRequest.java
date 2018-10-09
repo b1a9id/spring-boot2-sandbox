@@ -1,4 +1,4 @@
-package com.example.springboot2sandbox.service.dto;
+package com.example.springboot2sandbox.service.dto.request;
 
 public class UserRequest {
 
