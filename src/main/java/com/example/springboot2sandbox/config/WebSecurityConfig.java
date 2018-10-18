@@ -1,7 +1,7 @@
 package com.example.springboot2sandbox.config;
 
 import com.example.springboot2sandbox.enums.Role;
-import com.example.springboot2sandbox.security.UserDetailsServiceImpl;
+import com.example.springboot2sandbox.security.core.userdetails.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

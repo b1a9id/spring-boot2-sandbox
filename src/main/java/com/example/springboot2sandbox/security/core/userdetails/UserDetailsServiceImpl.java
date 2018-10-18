@@ -1,4 +1,4 @@
-package com.example.springboot2sandbox.security;
+package com.example.springboot2sandbox.security.core.userdetails;
 
 import com.example.springboot2sandbox.entity.User;
 import com.example.springboot2sandbox.repository.UserRepository;
