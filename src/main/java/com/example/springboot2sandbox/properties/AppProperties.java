@@ -1,9 +1,7 @@
 package com.example.springboot2sandbox.properties;
 
-import org.springframework.boot.context.properties.*;
-import org.springframework.stereotype.*;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@Component
 @ConfigurationProperties("app")
 public class AppProperties {
 	private String domain;
