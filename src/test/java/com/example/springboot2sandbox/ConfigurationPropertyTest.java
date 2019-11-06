@@ -11,7 +11,7 @@ import org.springframework.test.context.*;
 import org.springframework.test.context.junit.jupiter.*;
 
 @ExtendWith(SpringExtension.class)
-@TestPropertySource(locations = "/app-test.properties", properties = "spring.config.name=app")
+@TestPropertySource(properties = "spring.config.name=app")
 @ContextConfiguration(classes = {TestConfig.class}, initializers = ConfigFileApplicationContextInitializer.class)
 class ConfigurationPropertyTest {
 
