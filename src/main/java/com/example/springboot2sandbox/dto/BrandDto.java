@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SampleDto {
+public class BrandDto {
 	@JsonProperty("バックアップ日")
 	private String backupDate;
 	@JsonProperty("ID")

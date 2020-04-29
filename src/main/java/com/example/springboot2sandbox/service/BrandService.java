@@ -1,6 +1,6 @@
 package com.example.springboot2sandbox.service;
 
-import com.example.springboot2sandbox.dto.SampleDto;
+import com.example.springboot2sandbox.dto.BrandDto;
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
@@ -13,16 +13,16 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Service
-public class FileUploadService {
+public class BrandService {
 
 	public void upload(MultipartFile multipartFile) {
 		CsvMapper csvMapper = new CsvMapper();
-		CsvSchema csvSchema = csvMapper.schemaFor(SampleDto.class).withHeader();
+		CsvSchema csvSchema = csvMapper.schemaFor(BrandDto.class).withHeader();
 
 		try(InputStreamReader reader = new InputStreamReader(multipartFile.getInputStream(), StandardCharsets.ISO_8859_1)) {
-			MappingIterator<SampleDto> sampleDtoMappingIterator =
-					csvMapper.readerFor(SampleDto.class).with(csvSchema).readValues(reader);
-			List<SampleDto> result = sampleDtoMappingIterator.readAll();
+			MappingIterator<BrandDto> sampleDtoMappingIterator =
+					csvMapper.readerFor(BrandDto.class).with(csvSchema).readValues(reader);
+			List<BrandDto> result = sampleDtoMappingIterator.readAll();
 			System.out.println(result);
 		} catch (IOException e) {
 			System.out.println(e);

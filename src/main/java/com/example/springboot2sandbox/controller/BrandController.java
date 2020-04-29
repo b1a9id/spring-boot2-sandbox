@@ -1,6 +1,6 @@
 package com.example.springboot2sandbox.controller;
 
-import com.example.springboot2sandbox.service.FileUploadService;
+import com.example.springboot2sandbox.service.BrandService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-@RequestMapping("sample")
+@RequestMapping("brands")
 @RequiredArgsConstructor
-public class FileUploadController {
-	private final FileUploadService fileUploadService;
+public class BrandController {
+	private final BrandService brandService;
 
 	@GetMapping
 	public String index() {
@@ -23,7 +23,7 @@ public class FileUploadController {
 	@PostMapping("upload")
 	public String upload(
 			@RequestParam("upload_file") MultipartFile multipartFile) {
-		fileUploadService.upload(multipartFile);
-		return "redirect:/sample";
+		brandService.upload(multipartFile);
+		return "redirect:/brands";
 	}
 }
