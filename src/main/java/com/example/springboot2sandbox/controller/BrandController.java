@@ -1,5 +1,6 @@
 package com.example.springboot2sandbox.controller;
 
+import com.example.springboot2sandbox.dto.BrandDto;
 import com.example.springboot2sandbox.service.BrandService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("brands")
@@ -23,7 +26,7 @@ public class BrandController {
 	@PostMapping("upload")
 	public String upload(
 			@RequestParam("upload_file") MultipartFile multipartFile) {
-		brandService.upload(multipartFile);
+		List<BrandDto> brands = brandService.upload(multipartFile);
 		return "redirect:/brands";
 	}
 }
